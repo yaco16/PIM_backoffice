@@ -1,28 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { getItem, deleteItem } from '../../requests';
+import Country from '../../containers/Country';
 
-const Countries = ({ allCountries, getAllCountries }) => {
-  useEffect(() => {
-    getItem('countries', getAllCountries);
-  }, []);
-
+const Countries = ({ getAllCountries }) => {
+  getAllCountries();
   return (
     <div>
       <h1>Liste des pays</h1>
       <ul>
-        {allCountries.map((country) => (
-          <li key={country.id}>
-            {country.name}
-            <button type="button">Modifier</button>
-            <button
-              type="button"
-              onClick={() => deleteItem('countries', country.id)}
-            >
-              Supprimer
-            </button>
-          </li>
-        ))}
+        <Country />
       </ul>
       <div>
         <button type="button">Ajouter un pays</button>
@@ -32,7 +18,6 @@ const Countries = ({ allCountries, getAllCountries }) => {
 };
 
 Countries.propTypes = {
-  allCountries: PropTypes.array.isRequired,
   getAllCountries: PropTypes.func.isRequired,
 };
 

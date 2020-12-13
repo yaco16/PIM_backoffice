@@ -8,6 +8,7 @@ const countries = (store) => (next) => (action) => {
       axios
         .get('http://localhost:2222/v1/countries/')
         .then((response) => {
+          console.log('MW:', response);
           store.dispatch(saveCountries(response.data));
         })
         .catch((error) => console.log(error));

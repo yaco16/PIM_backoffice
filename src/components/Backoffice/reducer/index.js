@@ -10,6 +10,8 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_COUNTRIES: {
+      console.log('je suis dans le reducer SAVE_COUNTRIES');
+      // break;
       return {
         ...state,
         countries: action.countries,
