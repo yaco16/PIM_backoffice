@@ -1,0 +1,11 @@
+@use 'reset';
+@use 'vars';
+
+body {
+  font-family: sans-serif;
+}
+
+li:hover {
+  color: red;
+  text-decoration: underline;
+}
