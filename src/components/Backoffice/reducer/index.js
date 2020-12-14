@@ -5,6 +5,7 @@ const initialState = {
   ],
   currencies: {},
   customers: {},
+  // openModal: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
