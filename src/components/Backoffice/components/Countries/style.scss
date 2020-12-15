@@ -1,0 +1,25 @@
+.countries__container {
+  width: 500px;
+  margin: 1rem auto;
+}
+
+.countries__submitButton {
+  position: absolute;
+  top: 120px;
+  left: 200px;
+}
+
+.countries__nav {
+  color: #8EB7DF;
+  font-size: 0.8em;
+}
+
+.countries__title,
+.countries__addCountryButton {
+  display: inline-block;
+}
+
+.countries__subContainer {
+  display: flex;
+  justify-content: space-between;
+}

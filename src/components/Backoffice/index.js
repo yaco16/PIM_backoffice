@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Countries from './containers/Countries';
 import Currencies from './components/Currencies';
 import Customers from './components/Customers';
+import Form from './components/Form';
 
 const Backoffice = () => (
   <div>
@@ -23,6 +24,7 @@ const Backoffice = () => (
       <Route exact path="/customers">
         <Customers />
       </Route>
+      <Route path="/form" render={(props) => <Form {...props} />} />
     </Switch>
   </div>
 );

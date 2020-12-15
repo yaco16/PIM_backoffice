@@ -1,3 +1,15 @@
-form {
-  display: none;
+.form__container {
+  width: 500px;
+  margin: 1rem auto
+}
+
+.form__delete,
+.form__header {
+  display: inline-block;
+}
+
+
+.form__subContainer {
+  display: flex;
+  justify-content: space-between;
 }

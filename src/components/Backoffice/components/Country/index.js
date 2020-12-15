@@ -1,31 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
-import ModalExampleShorthand from '../SUI-Modal/addCountry';
+
 import 'semantic-ui-css/semantic.min.css';
-// import Form from '../Form';
+import './style.scss';
 
-import ButtonExampleConditionalsCustom from './button-SUI';
-// import { deleteCountry } from '../../requests';
+const Country = ({ allCountries }) => {
+  console.log('je suis dans Country');
+  return (
+    <div className="country__container">
+      {allCountries.map((country) => (
+        <Link
+          to={{
+            pathname: '/form',
+            state: {
+              id: country.id,
+              cname: country.name,
+              phone_prefix: country.phone_prefix,
+              iso_code: country.iso_code,
+              zone_id: country.zone_id,
+              currency_id: country.currency_id,
+            },
+          }}
+          key={country.id}
+        >
+          {country.name}
+          {/* <button type="button" onClick={() => handleClick()}>
+            Modifier
+          </button> */}
 
-const Country = ({ allCountries }) => (
-  <div>
-    {allCountries.map((country) => (
-      <li key={country.id} onClick={() => <ModalExampleShorthand />}>
-        {country.name}
-        {/* <button type="button" onClick={() => console.log('clic')}>
-          Modifier
-        </button> */}
-
-        {/* <button
+          {/* <button
           type="button"
           onClick={() => deleteCountry(country.id)}
         >
           Supprimer
-        </button> */}
-      </li>
-    ))}
-  </div>
-);
+        </button>} */}
+        </Link>
+      ))}
+    </div>
+  );
+};
 
 Country.propTypes = {
   allCountries: PropTypes.array.isRequired,
