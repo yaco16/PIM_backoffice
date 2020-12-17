@@ -10,7 +10,7 @@ import Customers from 'src/components/Customers';
 import Form from 'src/components/Form';
 
 const Backoffice = () => (
-  <div>
+  <div className="home__main">
     <Switch>
       <Route exact path="/">
         <Home />

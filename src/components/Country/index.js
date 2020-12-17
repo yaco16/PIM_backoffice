@@ -3,13 +3,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
-import './style.scss';
+import 'src/styles/index.scss';
 
 const Country = ({ allCountries }) => {
   console.log('allCountries:', allCountries);
   console.log('je suis dans Country');
   return (
-    <div className="country__container">
+    <div className="itemsList__container">
       {allCountries.map((country) => (
         <Link
           to={{

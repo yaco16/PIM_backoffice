@@ -6,24 +6,24 @@ import Country from 'src/containers/Country';
 // import Modal from '../Modal/modal';
 import AddCountry from 'src/components/Modal';
 import 'semantic-ui-css/semantic.min.css';
-// import 'src/style.scss';
+import 'src/styles/index.scss';
 
 const Countries = ({ getAllCountries }) => {
   getAllCountries();
   return (
-    <div className="countries__container">
-      <Link to={{ pathname: '/' }} className="countries__nav">
+    <div className="category__container">
+      <Link to={{ pathname: '/' }} className="category__nav">
         Retour accueil
       </Link>
-      <div className="countries__subContainer">
-        <h1 className="countries__title">Liste des pays</h1>
-        <AddCountry className="countries__addCountryButton" />
+      <div className="category__subContainer">
+        <h1 className="category__title">Liste des pays</h1>
+        <AddCountry className="category__addCountryButton" />
       </div>
 
       <ul>
         <Country />
       </ul>
-      <div className="countries__submitButton">
+      <div className="category__submitButton">
         {/* <button type="button">Ajouter un pays</button> */}
         {/* <Button /> */}
         {/* <Modal /> */}

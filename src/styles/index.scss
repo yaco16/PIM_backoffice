@@ -1,8 +1,13 @@
 @use 'reset';
-@use 'vars';
+@use 'vars' as v;
 
 body {
   font-family: sans-serif;
+}
+
+.home__main {
+  width: v.$width;
+  margin: v.$gutter auto;
 }
 
 .category__container {
@@ -29,4 +34,13 @@ body {
 .category__subContainer {
   display: flex;
   justify-content: space-between;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.itemsList__container {
+  display: flex;
+  flex-direction: column;
 }
