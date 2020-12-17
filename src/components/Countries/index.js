@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Country from '../../containers/Country';
+import Country from 'src/containers/Country';
 // import Button from '../Modal/button';
 // import Modal from '../Modal/modal';
-import AddCountry from '../SUI-Modal/addCountry';
+import AddCountry from 'src/components/Modal';
 import 'semantic-ui-css/semantic.min.css';
-import './style.scss';
+// import 'src/style.scss';
 
 const Countries = ({ getAllCountries }) => {
   getAllCountries();

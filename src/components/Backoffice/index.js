@@ -3,11 +3,11 @@ import { Route, Switch } from 'react-router-dom';
 
 import 'src/styles/index.scss';
 
-import Home from './components/Home';
-import Countries from './containers/Countries';
-import Currencies from './components/Currencies';
-import Customers from './components/Customers';
-import Form from './components/Form';
+import Home from 'src/components/Home';
+import Countries from 'src/containers/Countries';
+import Currencies from 'src/containers/Currencies';
+import Customers from 'src/components/Customers';
+import Form from 'src/components/Form';
 
 const Backoffice = () => (
   <div>

@@ -1,6 +1,7 @@
+/* eslint-disable no-console */
 import { connect } from 'react-redux';
-import Countries from '../../components/Countries';
-import { fetchCountries } from '../../actions';
+import Countries from 'src/components/Countries';
+import { fetchCountries } from 'src/actions/countries';
 
 // const mapStateToProps = (state) => ({
 //   allCountries: state.countries,

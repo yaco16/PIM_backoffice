@@ -1,20 +1,38 @@
 import React, { useState } from 'react';
-import { Button, Modal, Form, Header } from 'semantic-ui-react';
+import {
+  Button,
+  Modal,
+  Form,
+  Header,
+} from 'semantic-ui-react';
 
-import { createCountry } from '../../requests';
+import { createCountry } from 'src/requests';
 
 const AddCountry = () => {
   const [open, setOpen] = useState(false);
-  const [inputValue, setInputValue] = useState('');
+  // const [inputValue, setInputValue] = useState('');
+  // const {
+  //   name,
+  //   onChange,
+  //   value,
+  // } = props;
 
-  const handleChange = (value) => {
-    setInputValue(value);
+  const [state, setState] = useState({
+    name: '',
+    phone_prefix: '',
+    iso_code: '',
+  });
+  const handleChange = (event) => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = () => {
-    if (inputValue.length > 0) {
+    if (state.name.length > 0) {
       setOpen(false);
-      createCountry(inputValue);
+      createCountry(state);
     }
   };
 
@@ -32,23 +50,33 @@ const AddCountry = () => {
       >
         <Header content="Ajouter un pays" />
         <Modal.Content>
-          {/* <Form.Input fluid name="title" label="Title" placeholder="Title" /> */}
           <Form.Input
             fluid
+            type="text"
             name="name"
-            value={inputValue}
-            // label="Pays"
-            placeholder="Nom du pays"
-            onChange={(event) => handleChange(event.target.value)}
+            value={state.name}
+            label="Nom du pays"
+            placeholder="Exemple : France"
+            onChange={handleChange}
           />
           {/* <Form.Input fluid name="title" label="Title" placeholder="Title" /> */}
           <Form.Input
             fluid
+            label="Indicatif téléphonique"
+            type="text"
+            placeholder="Example : +33"
             name="phone_prefix"
-            value={inputValue}
-            // label="Pays"
-            placeholder="Indicatif téléphonique"
-            onChange={(event) => handleChange(event.target.value)}
+            value={state.phone_prefix}
+            onChange={handleChange}
+          />
+          <Form.Input
+            fluid
+            label="Code ISO"
+            type="text"
+            placeholder="Example : FR"
+            name="iso_code"
+            value={state.iso_code}
+            onChange={handleChange}
           />
         </Modal.Content>
         <Modal.Actions>

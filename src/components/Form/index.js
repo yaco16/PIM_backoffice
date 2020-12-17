@@ -1,41 +1,44 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-console */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Form, Header } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './style.scss';
-import { updCountry } from '../../requests';
+import { updateCountry } from 'src/requests';
 import Confirm from './confirm';
 
-const Form1 = (props) => {
+const Formulaire = (props) => {
   const {
     id,
-    cname,
+    name,
     phone_prefix,
     iso_code,
     zone_id,
     currency_id,
   } = props.location.state;
-  // console.log(id);
 
-  const [inputValue, setInputValue] = useState('');
+  const [state, setState] = useState({
+    id,
+    name,
+    phone_prefix,
+    iso_code,
+    zone_id,
+    currency_id,
+  });
 
   const history = useHistory();
 
-  const handleChange = (value) => {
-    console.log('je suis dans handleChange');
-    console.log(value);
-    setInputValue(value);
+  const handleChange = (event) => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = () => {
-    console.log('je suis dans handleSubmit');
-    console.log(inputValue);
-    const dataToSend = {
-      id: id,
-      name: inputValue,
-    };
-    updCountry(dataToSend);
+    updateCountry(state);
+    history.push('/countries');
   };
 
   return (
@@ -46,33 +49,32 @@ const Form1 = (props) => {
       </div>
       <Form.Field>
         <label>Nom</label>
-        <input
+        <Form.Input
           type="text"
           name="name"
-          value={inputValue}
-          onChange={(event) => {
-            event.preventDefault();
-            handleChange(event.target.value);
-          }}
-          placeholder={cname}
+          value={state.name}
+          onChange={handleChange}
         />
       </Form.Field>
       <Form.Field>
         <label>Préfixe téléphonique</label>
-        <input placeholder={phone_prefix} />
+        <Form.Input
+          type="text"
+          name="phone_prefix"
+          value={state.phone_prefix}
+          onChange={handleChange}
+        />
       </Form.Field>
       <Form.Field>
         <label>Code ISO</label>
-        <input placeholder={iso_code} />
+        <Form.Input
+          type="text"
+          name="iso_code"
+          value={state.iso_code}
+          onChange={handleChange}
+        />
       </Form.Field>
-      <Form.Field>
-        <label>Zone</label>
-        <input placeholder={zone_id} />
-      </Form.Field>
-      <Form.Field>
-        <label>Devise</label>
-        <input placeholder={currency_id} />
-      </Form.Field>
+
       <Button
         type="button"
         basic
@@ -88,4 +90,4 @@ const Form1 = (props) => {
   );
 };
 
-export default Form1;
+export default Formulaire;

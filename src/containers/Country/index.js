@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Country from '../../components/Country';
+import Country from 'src/components/Country';
 // import { fetchCountries } from '../../actions';
 
 const mapStateToProps = (state) => ({

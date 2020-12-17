@@ -7,7 +7,8 @@ import { Provider } from 'react-redux';
 // == Import : local
 // Composants
 import Backoffice from 'src/components/Backoffice';
-import store from './components/Backoffice/store';
+// import store from './components/Backoffice/store';
+import store from 'src/store';
 
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)

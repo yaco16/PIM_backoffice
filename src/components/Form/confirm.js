@@ -1,10 +1,17 @@
-import React from 'react';
-import { Button, Header, Icon, Modal } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import {
+  Button,
+  Icon,
+  Modal,
+} from 'semantic-ui-react';
 
-import { deleteCountry } from '../../requests';
+import { deleteCountry } from 'src/requests';
 
-function Confirm({ id }) {
-  const [open, setOpen] = React.useState(false);
+const Confirm = ({ id }) => {
+  const [open, setOpen] = useState(false);
+  const history = useHistory();
 
   return (
     <Modal
@@ -15,7 +22,6 @@ function Confirm({ id }) {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
     >
-      {/* <Header icon="archive" content="Archive Old Messages" /> */}
       <Modal.Content>
         <p>Confirmer la suppression</p>
       </Modal.Content>
@@ -28,6 +34,7 @@ function Confirm({ id }) {
           onClick={() => {
             setOpen(false);
             deleteCountry(id);
+            history.push('/countries');
           }}
         >
           <Icon name="checkmark" /> Oui
@@ -35,6 +42,10 @@ function Confirm({ id }) {
       </Modal.Actions>
     </Modal>
   );
-}
+};
+
+Confirm.propTypes = {
+  id: PropTypes.number.isRequired,
+};
 
 export default Confirm;

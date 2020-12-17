@@ -1,12 +1,11 @@
+/* eslint-disable no-console */
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
-import store from './store';
-import { fetchCountries } from './actions';
-
-const randomNumber = () => Math.floor(Math.random() * 1000);
+import store from 'src/store';
+import { fetchCountries } from 'src/actions/countries';
 
 export const deleteCountry = (id) => {
-  const API_URL = 'http://localhost:2222/v1/countries/' + id;
+  const API_URL = `http://localhost:2222/v1/countries/${id}`;
   return axios
     .delete(API_URL)
     .then((response) => {
@@ -17,13 +16,14 @@ export const deleteCountry = (id) => {
     .catch((error) => console.log(error));
 };
 
-export const createCountry = (id) => {
+// eslint-disable-next-line camelcase
+export const createCountry = ({ name, phone_prefix, iso_code }) => {
   const API_URL = 'http://localhost:2222/v1/countries/';
   return axios
     .post(API_URL, {
-      name: id,
-      phone_prefix: randomNumber(),
-      iso_code: randomNumber() + 1,
+      name,
+      phone_prefix,
+      iso_code,
       zone_id: '1',
       currency_id: 1,
     })
@@ -35,22 +35,17 @@ export const createCountry = (id) => {
     .catch((error) => console.log(error));
 };
 
-export const updCountry = (data) => {
-  console.log('je suis dans editCountry');
-  const API_URL = 'http://localhost:2222/v1/countries/' + data.id;
+export const updateCountry = (country) => {
+  const API_URL = `http://localhost:2222/v1/countries/${country.id}`;
 
   return axios
-    .put(API_URL, {
-      name: data.name,
-      phone_prefix: randomNumber(),
-      iso_code: randomNumber(),
-      zone_id: '1',
-      currency_id: 1,
-    })
+    .put(API_URL, country)
     .then((response) => {
       if (response.status === 200) {
         store.dispatch(fetchCountries());
       }
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      console.log(error);
+    });
 };
