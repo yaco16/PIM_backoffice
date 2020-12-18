@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Modal,
@@ -8,7 +9,7 @@ import {
 
 import { createCountry } from 'src/requests';
 
-const AddCountry = () => {
+const AddItem = ({ name }) => {
   const [open, setOpen] = useState(false);
   // const [inputValue, setInputValue] = useState('');
   // const {
@@ -42,7 +43,7 @@ const AddCountry = () => {
         closeIcon
         open={open}
         as={Form}
-        trigger={<Button color="green">Ajouter un pays</Button>}
+        trigger={<Button color="green">Ajouter {name}</Button>}
         size="small"
         onOpen={() => setOpen(true)}
         onClose={() => setOpen(false)}
@@ -92,4 +93,8 @@ const AddCountry = () => {
   );
 };
 
-export default AddCountry;
+AddItem.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+export default AddItem;

@@ -1,16 +1,23 @@
 /* eslint-disable no-console */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
 
-const Country = ({ allCountries }) => {
-  console.log('allCountries:', allCountries);
+const Country = ({ countries, getAllCountries }) => {
+  console.log('countries:', countries);
+  useEffect(() => {
+    console.log('je suis dans useEffect');
+    getAllCountries();
+  }, []);
   console.log('je suis dans Country');
+  // return (
+  //   <div>coucou</div>
+  // );
   return (
     <div className="itemsList__container">
-      {allCountries.map((country) => (
+      {countries.countries.map((country) => (
         <Link
           to={{
             pathname: '/form',
@@ -26,7 +33,8 @@ const Country = ({ allCountries }) => {
 };
 
 Country.propTypes = {
-  allCountries: PropTypes.array.isRequired,
+  countries: PropTypes.array.isRequired,
+  getAllCountries: PropTypes.func.isRequired,
 };
 
 export default Country;
