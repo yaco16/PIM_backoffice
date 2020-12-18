@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import 'src/styles/index.scss';
+import List from 'src/components/List';
 
 const HomeCategories = ({ homeCategories }) => {
   console.log('homeCategories:', homeCategories);
@@ -10,15 +11,9 @@ const HomeCategories = ({ homeCategories }) => {
     <div>
       <ul className="itemsList__container">
         {homeCategories.homeCategories.map((category) => (
-          <Link
-            to={{
-              pathname: `/${category.name}`,
-              state: category,
-            }}
-            key={category.id}
-          >
+          <a href={`/${category.name}`} key={category.id}>
             {category.name}
-          </Link>
+          </a>
         ))}
       </ul>
     </div>
