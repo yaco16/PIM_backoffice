@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+import { capitalize } from 'src/selectors/functions';
 import 'src/styles/index.scss';
-import List from 'src/components/List';
 
 const HomeCategories = ({ homeCategories }) => {
   console.log('homeCategories:', homeCategories);
@@ -12,7 +12,7 @@ const HomeCategories = ({ homeCategories }) => {
       <ul className="itemsList__container">
         {homeCategories.homeCategories.map((category) => (
           <a href={`/${category.name}`} key={category.id}>
-            {category.name}
+            {capitalize(category.nameFr)}
           </a>
         ))}
       </ul>
