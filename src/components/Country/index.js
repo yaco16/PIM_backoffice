@@ -6,7 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
 
 const Country = ({ countries, getAllCountries }) => {
-  console.log('countries:', countries);
+  console.log('countries:', countries.countries);
   useEffect(() => {
     console.log('je suis dans useEffect');
     getAllCountries();
@@ -33,7 +33,7 @@ const Country = ({ countries, getAllCountries }) => {
 };
 
 Country.propTypes = {
-  countries: PropTypes.array.isRequired,
+  countries: PropTypes.object.isRequired,
   getAllCountries: PropTypes.func.isRequired,
 };
 

@@ -7,13 +7,12 @@ import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
 // import Loader from 'src/components/Loader';
 
-const Currencies = ({ currencies, getAllCurrencies }) => {
-  console.log('currencies:', currencies.currencies.length);
+const Currencies = ({ currencies, getAllCurrencies, itemName }) => {
+  console.log('itemName:', itemName);
   useEffect(() => {
     console.log('je suis dans useEffect');
     getAllCurrencies();
   }, []);
-  console.log('allCurrencies:', currencies);
   return (
     <div className="category__container">
       <Link to={{ pathname: '/' }} className="category__nav">
@@ -21,7 +20,7 @@ const Currencies = ({ currencies, getAllCurrencies }) => {
       </Link>
       <div className="category__subContainer">
         <h1 className="category__title">Liste des devises</h1>
-        <AddItem name="une devise" />
+        <AddItem itemName={itemName} />
       </div>
       {currencies.currencies.length > 0 && (
         <ul className="itemsList__container">
@@ -45,6 +44,7 @@ const Currencies = ({ currencies, getAllCurrencies }) => {
 Currencies.propTypes = {
   currencies: PropTypes.object.isRequired,
   getAllCurrencies: PropTypes.func.isRequired,
+  itemName: PropTypes.string.isRequired,
 };
 
 export default Currencies;

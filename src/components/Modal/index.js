@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -9,7 +10,8 @@ import {
 
 import { createCountry } from 'src/requests';
 
-const AddItem = ({ name }) => {
+const AddItem = ({ itemName }) => {
+  console.log('itemName:', itemName);
   const [open, setOpen] = useState(false);
   // const [inputValue, setInputValue] = useState('');
   // const {
@@ -23,6 +25,7 @@ const AddItem = ({ name }) => {
     phone_prefix: '',
     iso_code: '',
   });
+
   const handleChange = (event) => {
     setState({
       ...state,
@@ -43,7 +46,7 @@ const AddItem = ({ name }) => {
         closeIcon
         open={open}
         as={Form}
-        trigger={<Button color="green">Ajouter {name}</Button>}
+        trigger={<Button color="green">Ajouter {itemName}</Button>}
         size="small"
         onOpen={() => setOpen(true)}
         onClose={() => setOpen(false)}
@@ -94,7 +97,8 @@ const AddItem = ({ name }) => {
 };
 
 AddItem.propTypes = {
-  name: PropTypes.string.isRequired,
+  itemName: PropTypes.string.isRequired,
+  // currenciesName: PropTypes.string.isRequired,
 };
 
 export default AddItem;

@@ -1,13 +1,10 @@
 import React from 'react';
+import HomeCategories from 'src/containers/HomeCategories';
 
 const Home = () => (
   <div>
     <h1>Backoffice Pim'Z</h1>
-    <ul>
-      <li><a href="/countries">Liste des pays</a></li>
-      <li><a href="/currencies">Liste des devises</a></li>
-      <li><a href="/customers">Liste des clients</a></li>
-    </ul>
+    <HomeCategories />
   </div>
 );
 

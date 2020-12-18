@@ -9,8 +9,8 @@ const currencies = (store) => (next) => (action) => {
       axios
         .get('http://localhost:2222/v1/currencies/')
         .then((response) => {
-          console.log('MW:', response);
-          console.log(typeof response.data);
+          // console.log('MW:', response);
+          // console.log(typeof response.data);
           store.dispatch(saveCurrencies(response.data));
         })
         .catch((error) => console.log(error));
