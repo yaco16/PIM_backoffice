@@ -4,7 +4,7 @@ import Country from 'src/components/Country';
 import { fetchCountries } from 'src/actions/countries';
 
 const mapStateToProps = (state) => {
-  console.log('state:', state.countries);
+  // console.log('state:', state.countries);
   return { countries: state.countries };
 };
 

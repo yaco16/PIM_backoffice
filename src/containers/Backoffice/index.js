@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Backoffice from 'src/components/Backoffice';
 
 const mapStateToProps = (state) => {
-  console.log('state.homeCategories', state.homeCategories);
+  // console.log('state.homeCategories', state.homeCategories);
   return {
     homeCategories: state.homeCategories,
   };

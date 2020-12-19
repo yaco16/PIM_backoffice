@@ -2,20 +2,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Modal, Form, Header } from 'semantic-ui-react';
+import AddItemField from 'src/containers/AddItemField';
 
-const AddItem = ({ item, fullState, inputValue, changeInputValue }) => {
+const AddItem = ({ item, fullState, addItem }) => {
   const labels = fullState[`${item.name}`].labelFr;
-  console.log('labels:', labels);
+  // console.log('labels:', labels);
 
   const [open, setOpen] = useState(false);
-
-  const handleChange = (event) => {
-    changeInputValue(event.target.value);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('je suis dans submit');
+    addItem();
   };
 
   return (
@@ -28,30 +26,18 @@ const AddItem = ({ item, fullState, inputValue, changeInputValue }) => {
         size="small"
         onOpen={() => setOpen(true)}
         onClose={() => setOpen(false)}
-        onSubmit={() => handleSubmit()}
+        onSubmit={(event) => handleSubmit(event)}
       >
         <Header content={`Ajouter ${item.nameFr2}`} />
         <Modal.Content>
-          <Form.Input
-            fluid
-            type="text"
-            name="name"
-            label="écrire ci-dessous"
-            value={inputValue}
-            onChange={handleChange}
-          />
-          {/* {labels.map((label) => (
-            <Form.Input
-              fluid
+          {labels.map((label) => (
+            <AddItemField
               type="text"
               name={Object.keys(label)[0]}
-              value={inputValue}
               label={Object.values(label)[0]}
-              // placeholder="Exemple : France"
-              onChange={handleChange}
               key={Math.random()}
             />
-          ))} */}
+          ))}
         </Modal.Content>
         <Modal.Actions>
           <Button
@@ -74,8 +60,7 @@ const AddItem = ({ item, fullState, inputValue, changeInputValue }) => {
 AddItem.propTypes = {
   item: PropTypes.object.isRequired,
   fullState: PropTypes.object.isRequired,
-  inputValue: PropTypes.string.isRequired,
-  changeInputValue: PropTypes.func.isRequired,
+  addItem: PropTypes.func.isRequired,
 };
 
 export default AddItem;
