@@ -1,9 +1,16 @@
 /* eslint-disable no-console */
-import { UPD_INPUT_VALUE, CREATE_ITEM, TOGGLE_MODAL } from 'src/actions/addItem';
+import {
+  UPDATE_INPUT_VALUE,
+  CREATE_ITEM,
+  UPDATE_MODAL_OPENING,
+  UPDATE_LOADER,
+} from 'src/actions/addItem';
+// eslint-disable-next-line import/no-cycle
 import { createCountry } from 'src/requests';
 
 const initialState = {
-  open: false,
+  modalIsOpen: false,
+  loaderIsActive: false,
   name: '',
   phone_prefix: '',
   iso_code: '',
@@ -11,7 +18,7 @@ const initialState = {
 
 const addItem = (state = initialState, action = {}) => {
   switch (action.type) {
-    case UPD_INPUT_VALUE: {
+    case UPDATE_INPUT_VALUE: {
       return {
         ...state,
         [action.inputNames]: action.inputValues,
@@ -26,13 +33,21 @@ const addItem = (state = initialState, action = {}) => {
         zone_id: '1',
         currency_id: '1',
       };
-      return createCountry(query);
+      createCountry(query);
+      return state;
     }
 
-    case TOGGLE_MODAL: {
+    case UPDATE_MODAL_OPENING: {
       return {
         ...state,
-        open: !state.open,
+        modalIsOpen: !state.modalIsOpen,
+      };
+    }
+
+    case UPDATE_LOADER: {
+      return {
+        ...state,
+        loaderIsActive: !state.loaderIsActive,
       };
     }
 

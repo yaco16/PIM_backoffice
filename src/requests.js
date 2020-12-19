@@ -20,6 +20,7 @@ export const deleteCountry = (id) => {
 export const createCountry = (data) => {
   console.log('dans request :', data.iso_code);
   const API_URL = 'http://localhost:2222/v1/countries/';
+  // return 'axios désactivé';
   return axios
     .post(API_URL, {
       name: data.name,
@@ -30,7 +31,6 @@ export const createCountry = (data) => {
     })
     .then((response) => {
       if (response.status === 200) {
-        // store.dispatch(fetchCountries());
         console.log(response.data);
       }
     })

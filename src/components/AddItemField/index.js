@@ -6,7 +6,7 @@ const AddItemField = ({
   type,
   name,
   label,
-  inputValue,
+  value,
   changeInputValue,
 }) => (
   <Form.Input
@@ -14,7 +14,7 @@ const AddItemField = ({
     type={type}
     name={name}
     label={label}
-    value={inputValue}
+    value={value}
     onChange={(event) => changeInputValue(event.target.value)}
   />
 );
@@ -23,7 +23,7 @@ AddItemField.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  inputValue: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   changeInputValue: PropTypes.func.isRequired,
 };
 

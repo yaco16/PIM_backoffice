@@ -1,28 +1,50 @@
 /* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Modal, Form, Header } from 'semantic-ui-react';
+import {
+  Button,
+  Modal,
+  Form,
+  Header,
+  Loader,
+  Dimmer,
+} from 'semantic-ui-react';
+
 import AddItemField from 'src/containers/AddItemField';
 
-const AddItem = ({ open, toggleOpen, item, fullState, addItem }) => {
+const AddItem = ({
+  modalIsOpen,
+  toggleModal,
+  loaderIsActive,
+  toggleLoader,
+  item,
+  fullState,
+  addItem,
+  getAllCountries,
+}) => {
   const labels = fullState[`${item.name}`].labelFr;
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('je suis dans submit');
+    toggleLoader();
     addItem();
+    getAllCountries();
+    setTimeout(() => {
+      toggleLoader();
+      toggleModal();
+    }, 1200);
   };
 
   return (
     <div>
       <Modal
         closeIcon
-        open={open}
+        open={modalIsOpen}
         as={Form}
         trigger={<Button color="green">Ajouter {item.nameFr2}</Button>}
         size="small"
-        onOpen={() => toggleOpen()}
-        onClose={() => toggleOpen()}
+        onOpen={() => toggleModal()}
+        onClose={() => toggleModal()}
         onSubmit={(event) => handleSubmit(event)}
       >
         <Header content={`Ajouter ${item.nameFr2}`} />
@@ -32,34 +54,40 @@ const AddItem = ({ open, toggleOpen, item, fullState, addItem }) => {
               type="text"
               name={Object.keys(label)[0]}
               label={Object.values(label)[0]}
-              key={Math.random()}
+              key={Object.keys(label)[0]}
             />
           ))}
         </Modal.Content>
+
         <Modal.Actions>
-          <Button
-            type="button"
-            basic
-            color="red"
-            onClick={() => toggleOpen()}
-          >
+          <Button type="button" basic color="red" onClick={() => toggleModal()}>
             Annuler
           </Button>
           <Button type="submit" color="green">
             Envoyer
           </Button>
         </Modal.Actions>
+        {loaderIsActive && (
+          <div>
+            <Dimmer active inverted>
+              <Loader size="massive">Loading</Loader>
+            </Dimmer>
+          </div>
+        )}
       </Modal>
     </div>
   );
 };
 
 AddItem.propTypes = {
-  open: PropTypes.bool.isRequired,
-  toggleOpen: PropTypes.func.isRequired,
+  modalIsOpen: PropTypes.bool.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  loaderIsActive: PropTypes.bool.isRequired,
+  toggleLoader: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   fullState: PropTypes.object.isRequired,
   addItem: PropTypes.func.isRequired,
+  getAllCountries: PropTypes.func.isRequired,
 };
 
 export default AddItem;

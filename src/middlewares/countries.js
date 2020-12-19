@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import axios from 'axios';
-import { FETCH_COUNTRIES, saveCountries } from '../actions/countries';
+import { FETCH_COUNTRIES, saveCountries } from 'src/actions/countries';
 
 const countries = (store) => (next) => (action) => {
   switch (action.type) {
