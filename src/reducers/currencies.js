@@ -2,6 +2,12 @@
 import { SAVE_CURRENCIES } from 'src/actions/currencies';
 
 const initialState = {
+  labelFr: [
+    { name: 'Nom de la devise' },
+    { symbol: 'Symbole monétaire' },
+    { iso_code: 'Code ISO' },
+    { numeric_iso_code: 'Code ISO numérique' },
+  ],
   itemName: 'une devise',
   currencies: [],
 };
