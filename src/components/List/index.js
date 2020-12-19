@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
+import { capitalize } from 'src/selectors/functions';
 import AddItem from 'src/components/Modal';
+import Country from 'src/containers/Country';
 
 import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
@@ -21,9 +23,9 @@ const List = ({ category }) => {
         <AddItem item={category[0]} />
       </div>
 
-      {/* <ul>
+      <ul>
         <Country />
-      </ul> */}
+      </ul>
     </div>
   );
 };

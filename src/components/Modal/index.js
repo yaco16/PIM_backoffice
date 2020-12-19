@@ -11,7 +11,7 @@ import {
 import { createCountry } from 'src/requests';
 
 const AddItem = ({ item }) => {
-  console.log('item dans la modale:', item);
+  console.log('item dans la modale:', item.nameFr2);
   const [open, setOpen] = useState(false);
   // const [inputValue, setInputValue] = useState('');
   // const {
@@ -52,7 +52,7 @@ const AddItem = ({ item }) => {
         onClose={() => setOpen(false)}
         onSubmit={() => handleSubmit()}
       >
-        <Header content="Ajouter un pays" />
+        <Header content={`Ajouter ${item.nameFr2}`} />
         <Modal.Content>
           <Form.Input
             fluid
