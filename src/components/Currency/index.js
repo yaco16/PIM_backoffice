@@ -6,33 +6,33 @@ import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
 
-const Country = ({ countries, getAllCountries }) => {
-  console.log('countries:', countries.countries);
+const Currency = ({ currencies, getAllCurrencies }) => {
+  console.log('currencies:', currencies.currencies);
   useEffect(() => {
     console.log('je suis dans useEffect');
-    getAllCountries();
+    getAllCurrencies();
   }, []);
-  console.log('je suis dans Country');
+  console.log('je suis dans Currency');
   return (
     <div className="itemsList__container">
-      {countries.countries.map((country) => (
+      {currencies.currencies.map((currency) => (
         <Link
           to={{
             pathname: '/form',
-            state: country,
+            state: currency,
           }}
-          key={country.id}
+          key={currency.id}
         >
-          {country.name}
+          {currency.name}
         </Link>
       ))}
     </div>
   );
 };
 
-Country.propTypes = {
-  countries: PropTypes.object.isRequired,
-  getAllCountries: PropTypes.func.isRequired,
+Currency.propTypes = {
+  currencies: PropTypes.object.isRequired,
+  getAllCurrencies: PropTypes.func.isRequired,
 };
 
-export default Country;
+export default Currency;

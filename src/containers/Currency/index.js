@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import { connect } from 'react-redux';
-import Currencies from 'src/components/Currencies';
+import Currency from 'src/components/Currency';
 import { fetchCurrencies } from 'src/actions/currencies';
 
 const mapStateToProps = (state) => {
-  console.log('itemName de mapState', state.itemName);
+  console.log('itemName de mapState');
   return {
     currencies: state.currencies,
     itemName: state.currencies.itemName,
@@ -13,9 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   getAllCurrencies: () => {
-    console.log('je suis dans le container dispatch de Currencies');
+    console.log('je suis dans le container dispatch de Currency');
     dispatch(fetchCurrencies());
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Currencies);
+export default connect(mapStateToProps, mapDispatchToProps)(Currency);
