@@ -2,7 +2,6 @@
 import { connect } from 'react-redux';
 import AddItem from 'src/components/AddItem';
 import { createItem, updateModalOpening, updateLoader } from 'src/actions/addItem';
-import { fetchCountries } from 'src/actions/countries';
 
 const mapStateToProps = (state) => ({
   fullState: state,
@@ -14,7 +13,6 @@ const mapDispatchToProps = (dispatch) => ({
   addItem: () => dispatch(createItem()),
   toggleModal: () => dispatch(updateModalOpening()),
   toggleLoader: () => dispatch(updateLoader()),
-  getAllCountries: () => dispatch(fetchCountries()),
 
 });
 

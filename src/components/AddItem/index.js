@@ -20,7 +20,6 @@ const AddItem = ({
   item,
   fullState,
   addItem,
-  getAllCountries,
 }) => {
   const labels = fullState[`${item.name}`].labelFr;
 
@@ -28,7 +27,6 @@ const AddItem = ({
     event.preventDefault();
     toggleLoader();
     addItem();
-    getAllCountries();
     setTimeout(() => {
       toggleLoader();
       toggleModal();
@@ -87,7 +85,6 @@ AddItem.propTypes = {
   item: PropTypes.object.isRequired,
   fullState: PropTypes.object.isRequired,
   addItem: PropTypes.func.isRequired,
-  getAllCountries: PropTypes.func.isRequired,
 };
 
 export default AddItem;

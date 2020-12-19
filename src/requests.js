@@ -11,6 +11,7 @@ export const deleteCountry = (id) => {
     .then((response) => {
       if (response.status === 200) {
         store.dispatch(fetchCountries());
+        console.log(response.data);
       }
     })
     .catch((error) => console.log(error));
@@ -32,6 +33,7 @@ export const createCountry = (data) => {
     .then((response) => {
       if (response.status === 200) {
         console.log(response.data);
+        store.dispatch(fetchCountries());
       }
     })
     .catch((error) => console.log(error));
@@ -44,6 +46,7 @@ export const updateCountry = (country) => {
     .put(API_URL, country)
     .then((response) => {
       if (response.status === 200) {
+        console.log(response.data);
         store.dispatch(fetchCountries());
       }
     })
