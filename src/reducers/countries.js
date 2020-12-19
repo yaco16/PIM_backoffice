@@ -10,6 +10,7 @@ const initialState = {
   ],
   itemName: 'un pays',
   countries: [],
+  // newValue: '',
 };
 
 const countries = (state = initialState, action = {}) => {
