@@ -1,16 +1,16 @@
 /* eslint-disable no-console */
 import { connect } from 'react-redux';
 import AddItem from 'src/components/AddItem';
-import { createItem } from 'src/actions/addItem';
+import { createItem, toggleModal } from 'src/actions/addItem';
 
 const mapStateToProps = (state) => ({
   fullState: state,
+  open: state.addItem.open,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addItem: () => {
-    dispatch(createItem());
-  },
+  addItem: () => dispatch(createItem()),
+  toggleOpen: () => dispatch(toggleModal()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddItem);

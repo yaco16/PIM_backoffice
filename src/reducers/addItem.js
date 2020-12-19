@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
-import { UPD_INPUT_VALUE, CREATE_ITEM } from 'src/actions/addItem';
+import { UPD_INPUT_VALUE, CREATE_ITEM, TOGGLE_MODAL } from 'src/actions/addItem';
 import { createCountry } from 'src/requests';
 
 const initialState = {
+  open: false,
   name: '',
   phone_prefix: '',
   iso_code: '',
@@ -26,6 +27,13 @@ const addItem = (state = initialState, action = {}) => {
         currency_id: '1',
       };
       return createCountry(query);
+    }
+
+    case TOGGLE_MODAL: {
+      return {
+        ...state,
+        open: !state.open,
+      };
     }
 
     default:

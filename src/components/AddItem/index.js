@@ -1,14 +1,11 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Modal, Form, Header } from 'semantic-ui-react';
 import AddItemField from 'src/containers/AddItemField';
 
-const AddItem = ({ item, fullState, addItem }) => {
+const AddItem = ({ open, toggleOpen, item, fullState, addItem }) => {
   const labels = fullState[`${item.name}`].labelFr;
-  // console.log('labels:', labels);
-
-  const [open, setOpen] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,8 +21,8 @@ const AddItem = ({ item, fullState, addItem }) => {
         as={Form}
         trigger={<Button color="green">Ajouter {item.nameFr2}</Button>}
         size="small"
-        onOpen={() => setOpen(true)}
-        onClose={() => setOpen(false)}
+        onOpen={() => toggleOpen()}
+        onClose={() => toggleOpen()}
         onSubmit={(event) => handleSubmit(event)}
       >
         <Header content={`Ajouter ${item.nameFr2}`} />
@@ -44,7 +41,7 @@ const AddItem = ({ item, fullState, addItem }) => {
             type="button"
             basic
             color="red"
-            onClick={() => setOpen(false)}
+            onClick={() => toggleOpen()}
           >
             Annuler
           </Button>
@@ -58,6 +55,8 @@ const AddItem = ({ item, fullState, addItem }) => {
 };
 
 AddItem.propTypes = {
+  open: PropTypes.bool.isRequired,
+  toggleOpen: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   fullState: PropTypes.object.isRequired,
   addItem: PropTypes.func.isRequired,

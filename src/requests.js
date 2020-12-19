@@ -18,20 +18,20 @@ export const deleteCountry = (id) => {
 
 // eslint-disable-next-line camelcase
 export const createCountry = (data) => {
-  console.log('dans request :', data);
-  return 'ok';
+  console.log('dans request :', data.iso_code);
   const API_URL = 'http://localhost:2222/v1/countries/';
   return axios
     .post(API_URL, {
-      name,
-      phone_prefix,
-      iso_code,
+      name: data.name,
+      phone_prefix: data.phone_prefix,
+      iso_code: data.iso_code,
       zone_id: '1',
       currency_id: '1',
     })
     .then((response) => {
       if (response.status === 200) {
-        store.dispatch(fetchCountries());
+        // store.dispatch(fetchCountries());
+        console.log(response.data);
       }
     })
     .catch((error) => console.log(error));
