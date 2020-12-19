@@ -6,9 +6,8 @@ import { Button, Modal, Form, Header } from 'semantic-ui-react';
 import { createCountry } from 'src/requests';
 
 const AddItem = ({ item, fullState }) => {
-  const {
-    countries: { fields, labelFr },
-  } = fullState;
+  const labels = fullState[`${item.name}`].labelFr;
+  console.log('labels:', labels);
 
   const [open, setOpen] = useState(false);
   // const [inputValue, setInputValue] = useState('');
@@ -52,14 +51,14 @@ const AddItem = ({ item, fullState }) => {
       >
         <Header content={`Ajouter ${item.nameFr2}`} />
         <Modal.Content>
-          {labelFr.map((label) => (
+          {labels.map((label) => (
             <Form.Input
               fluid
               type="text"
               name={Object.keys(label)[0]}
               // value={state.name}
               label={Object.values(label)[0]}
-              placeholder="Exemple : France"
+              // placeholder="Exemple : France"
               onChange={handleChange}
               key={Math.random()}
             />
