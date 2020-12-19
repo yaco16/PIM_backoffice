@@ -19,7 +19,7 @@ const Backoffice = ({ homeCategories }) => (
       </Route>
       {homeCategories.homeCategories.map((category) => (
         <Route exact path={`/${category.name}`} key={category.id}>
-          <List category={`/${category.name}`} />
+          <List category={[category]} />
         </Route>
       ))}
       <Route path="/form" render={(props) => <Form {...props} />} />

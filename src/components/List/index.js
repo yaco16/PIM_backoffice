@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 import AddItem from 'src/components/Modal';
@@ -10,9 +10,6 @@ import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
 
 const List = ({ category }) => {
-  // useEffect(() => {
-  //   console.log(itemName);
-  // }, []);
   console.log('category', category);
   return (
     <div className="category__container">
@@ -20,8 +17,8 @@ const List = ({ category }) => {
         Retour accueil
       </Link>
       <div className="category__subContainer">
-        <h1 className="category__title">Liste des XXX</h1>
-        <AddItem itemName={category} />
+        <h1 className="category__title">Liste des {category[0].name}</h1>
+        <AddItem item={category[0]} />
       </div>
 
       {/* <ul>
@@ -32,7 +29,7 @@ const List = ({ category }) => {
 };
 
 List.propTypes = {
-  itemName: PropTypes.string.isRequired,
+  category: PropTypes.array.isRequired,
 };
 
 export default List;

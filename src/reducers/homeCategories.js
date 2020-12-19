@@ -6,16 +6,19 @@ const initialState = {
       id: 1,
       name: 'countries',
       nameFr: 'pays',
+      nameFr2: 'un pays',
     },
     {
       id: 2,
       name: 'currencies',
       nameFr: 'devises',
+      nameFr2: 'une devise',
     },
     {
       id: 3,
       name: 'customers',
       nameFr: 'clients',
+      nameFr2: 'un client',
     },
   ],
 };

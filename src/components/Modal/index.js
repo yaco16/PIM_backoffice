@@ -10,8 +10,8 @@ import {
 
 import { createCountry } from 'src/requests';
 
-const AddItem = ({ itemName }) => {
-  console.log('itemName:', itemName);
+const AddItem = ({ item }) => {
+  console.log('item dans la modale:', item);
   const [open, setOpen] = useState(false);
   // const [inputValue, setInputValue] = useState('');
   // const {
@@ -46,7 +46,7 @@ const AddItem = ({ itemName }) => {
         closeIcon
         open={open}
         as={Form}
-        trigger={<Button color="green">Ajouter {itemName}</Button>}
+        trigger={<Button color="green">Ajouter {item.nameFr2}</Button>}
         size="small"
         onOpen={() => setOpen(true)}
         onClose={() => setOpen(false)}
@@ -97,7 +97,7 @@ const AddItem = ({ itemName }) => {
 };
 
 AddItem.propTypes = {
-  itemName: PropTypes.string.isRequired,
+  item: PropTypes.object.isRequired,
   // currenciesName: PropTypes.string.isRequired,
 };
 
