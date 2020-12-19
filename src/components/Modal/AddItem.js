@@ -1,17 +1,14 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Button,
-  Modal,
-  Form,
-  Header,
-} from 'semantic-ui-react';
+import { Button, Modal, Form, Header } from 'semantic-ui-react';
 
 import { createCountry } from 'src/requests';
 
 const AddItem = ({ item, fullState }) => {
-  const { countries: { fields, labelFr } } = fullState;
+  const {
+    countries: { fields, labelFr },
+  } = fullState;
 
   const [open, setOpen] = useState(false);
   // const [inputValue, setInputValue] = useState('');
@@ -55,37 +52,26 @@ const AddItem = ({ item, fullState }) => {
       >
         <Header content={`Ajouter ${item.nameFr2}`} />
         <Modal.Content>
-          <Form.Input
-            fluid
-            type="text"
-            name="name"
-            value={state.name}
-            label={labelFr.name}
-            placeholder="Exemple : France"
-            onChange={handleChange}
-          />
-          {/* <Form.Input fluid name="title" label="Title" placeholder="Title" /> */}
-          <Form.Input
-            fluid
-            label={labelFr.phone_prefix}
-            type="text"
-            placeholder="Example : +33"
-            name="phone_prefix"
-            value={state.phone_prefix}
-            onChange={handleChange}
-          />
-          <Form.Input
-            fluid
-            label={labelFr.iso_code}
-            type="text"
-            placeholder="Example : FR"
-            name="iso_code"
-            value={state.iso_code}
-            onChange={handleChange}
-          />
+          {labelFr.map((label) => (
+            <Form.Input
+              fluid
+              type="text"
+              name={Object.keys(label)[0]}
+              // value={state.name}
+              label={Object.values(label)[0]}
+              placeholder="Exemple : France"
+              onChange={handleChange}
+              key={Math.random()}
+            />
+          ))}
         </Modal.Content>
         <Modal.Actions>
-          <Button type="button" basic color="red" onClick={() => setOpen(false)}>
+          <Button
+            type="button"
+            basic
+            color="red"
+            onClick={() => setOpen(false)}
+          >
             Annuler
           </Button>
           <Button type="submit" color="green">

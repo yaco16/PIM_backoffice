@@ -2,16 +2,12 @@
 import { SAVE_COUNTRIES } from 'src/actions/countries';
 
 const initialState = {
-  fields: {
-    name: '',
-    phone_prefix: '',
-    iso_code: '',
-  },
-  labelFr: {
-    name: 'Nom du pays',
-    phone_prefix: 'Indicatif téléphonique',
-    iso_code: 'Code ISO',
-  },
+  // fields: [{ name: '' }, { phone_prefix: '' }, { iso_code: '' }],
+  labelFr: [
+    { name: 'Nom du pays' },
+    { phone_prefix: 'Indicatif téléphonique' },
+    { iso_code: 'Code ISO' },
+  ],
   itemName: 'un pays',
   countries: [],
 };
