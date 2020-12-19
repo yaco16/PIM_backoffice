@@ -7,7 +7,7 @@ import { capitalize } from 'src/selectors/functions';
 import 'src/styles/index.scss';
 
 const HomeCategories = ({ homeCategories }) => {
-  console.log('homeCategories:', homeCategories);
+  // console.log('homeCategories:', homeCategories);
 
   return (
     <div>

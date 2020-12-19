@@ -7,12 +7,9 @@ import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
 
 const Country = ({ countries, getAllCountries }) => {
-  console.log('countries:', countries.countries);
   useEffect(() => {
-    console.log('je suis dans useEffect');
     getAllCountries();
   }, []);
-  console.log('je suis dans Country');
   return (
     <div className="itemsList__container">
       {countries.countries.map((country) => (

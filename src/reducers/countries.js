@@ -19,7 +19,7 @@ const initialState = {
 const countries = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_COUNTRIES: {
-      console.log('action.countries', action.countries);
+      // console.log('action.countries', action.countries);
       return {
         ...state,
         countries: action.countries,

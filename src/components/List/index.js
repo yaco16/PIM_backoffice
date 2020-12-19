@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
-import AddItem from 'src/components/Modal/AddItem';
+import AddItem from 'src/containers/Modal/AddItem';
 import MyComponent from 'src/selectors/MyComponent';
 
 import 'semantic-ui-css/semantic.min.css';

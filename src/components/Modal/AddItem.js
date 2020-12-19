@@ -10,8 +10,9 @@ import {
 
 import { createCountry } from 'src/requests';
 
-const AddItem = ({ item }) => {
-  console.log('item dans la modale:', item.nameFr2);
+const AddItem = ({ item, fullState }) => {
+  const { countries: { fields, labelFr } } = fullState;
+
   const [open, setOpen] = useState(false);
   // const [inputValue, setInputValue] = useState('');
   // const {
@@ -59,14 +60,14 @@ const AddItem = ({ item }) => {
             type="text"
             name="name"
             value={state.name}
-            label="Nom du pays"
+            label={labelFr.name}
             placeholder="Exemple : France"
             onChange={handleChange}
           />
           {/* <Form.Input fluid name="title" label="Title" placeholder="Title" /> */}
           <Form.Input
             fluid
-            label="Indicatif téléphonique"
+            label={labelFr.phone_prefix}
             type="text"
             placeholder="Example : +33"
             name="phone_prefix"
@@ -75,7 +76,7 @@ const AddItem = ({ item }) => {
           />
           <Form.Input
             fluid
-            label="Code ISO"
+            label={labelFr.iso_code}
             type="text"
             placeholder="Example : FR"
             name="iso_code"
@@ -98,6 +99,7 @@ const AddItem = ({ item }) => {
 
 AddItem.propTypes = {
   item: PropTypes.object.isRequired,
+  fullState: PropTypes.object.isRequired,
   // currenciesName: PropTypes.string.isRequired,
 };
 

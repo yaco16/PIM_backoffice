@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   getAllCountries: () => {
-    console.log('je suis dans le container de Country');
+    // console.log('je suis dans le container de Country');
     dispatch(fetchCountries());
   },
 });

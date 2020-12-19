@@ -5,7 +5,7 @@ import { FETCH_CURRENCIES, saveCurrencies } from 'src/actions/currencies';
 const currencies = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_CURRENCIES: {
-      console.log('je suis dans le MW de Currencies');
+      // console.log('je suis dans le MW de Currencies');
       axios
         .get('http://localhost:2222/v1/currencies/')
         .then((response) => {
