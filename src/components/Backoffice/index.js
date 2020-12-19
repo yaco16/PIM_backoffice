@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 
 import 'src/styles/index.scss';
@@ -10,24 +11,24 @@ import Home from 'src/components/Home';
 import Form from 'src/components/Form';
 import List from 'src/components/List';
 
-const Backoffice = () => (
+const Backoffice = ({ homeCategories }) => (
   <div className="home__main">
     <Switch>
       <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path="/countries">
-        <List />
-      </Route>
-      <Route exact path="/currencies">
-        <List />
-      </Route>
-      <Route exact path="/customers">
-        <List />
-      </Route>
+      {homeCategories.homeCategories.map((category) => (
+        <Route exact path={`/${category.name}`} key={category.id}>
+          <List category={`/${category.name}`} />
+        </Route>
+      ))}
       <Route path="/form" render={(props) => <Form {...props} />} />
     </Switch>
   </div>
 );
+
+Backoffice.propTypes = {
+  homeCategories: PropTypes.object.isRequired,
+};
 
 export default Backoffice;

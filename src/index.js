@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 // == Import : local
 // Composants
-import Backoffice from 'src/components/Backoffice';
+import Backoffice from 'src/containers/Backoffice';
 // import store from './components/Backoffice/store';
 import store from 'src/store';
 

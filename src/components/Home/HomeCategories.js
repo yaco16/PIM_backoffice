@@ -1,19 +1,27 @@
 /* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { capitalize } from 'src/selectors/functions';
 import 'src/styles/index.scss';
 
 const HomeCategories = ({ homeCategories }) => {
   console.log('homeCategories:', homeCategories);
+
   return (
     <div>
       <ul className="itemsList__container">
         {homeCategories.homeCategories.map((category) => (
-          <a href={`/${category.name}`} key={category.id}>
+          <Link
+            to={{
+              pathname: `/${category.name}`,
+              state: true,
+            }}
+            key={category.id}
+          >
             {capitalize(category.nameFr)}
-          </a>
+          </Link>
         ))}
       </ul>
     </div>
