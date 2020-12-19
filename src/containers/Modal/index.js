@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
-import AddItem from 'src/components/Modal';
+import AddItem from 'src/components/Modal/AddItem';
 
 const getCurrenciesItemName = (state) => state.currencies.itemName;
 const getCountriesItemName = (state) => state.currencies.itemName;
