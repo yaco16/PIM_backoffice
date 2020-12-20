@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 import AddItem from 'src/containers/AddItem';
-import MyComponent from 'src/selectors/MyComponent';
+import MyComponent from 'src/containers/MyComponent';
 
 import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
@@ -25,6 +25,7 @@ const List = ({ category }) => {
 
       <ul>
         <MyComponent tag={String(category[0].nameSingular)} />
+        {/* <MyComponent tag="listDetails" /> */}
       </ul>
     </div>
   );
