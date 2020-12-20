@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { SAVE_COUNTRIES } from 'src/actions/countries';
+import { SAVE_COUNTRIES, SHOW_COUNTRIES } from 'src/actions/countries';
 
 const initialState = {
   // fields: [{ name: '' }, { phone_prefix: '' }, { iso_code: '' }],
@@ -22,6 +22,14 @@ const countries = (state = initialState, action = {}) => {
         countries: action.countries,
       };
     }
+
+    case SHOW_COUNTRIES: {
+      return {
+        ...state,
+        countries: action.countries,
+      };
+    }
+
     default:
       return state;
   }
