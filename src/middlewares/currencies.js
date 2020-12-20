@@ -21,4 +21,4 @@ const currencies = (store) => (next) => (action) => {
   }
 };
 
-export default currencies;
+// export default currencies;
