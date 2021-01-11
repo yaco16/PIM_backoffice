@@ -9,8 +9,9 @@ export const updateInputValue = (inputNames, inputValues) => ({
   inputValues,
 });
 
-export const createItem = () => ({
+export const createItem = (category) => ({
   type: CREATE_ITEM,
+  category,
 });
 
 export const updateModalOpening = () => ({

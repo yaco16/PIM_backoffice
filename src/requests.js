@@ -78,16 +78,16 @@ export const getCurrencies = async () => {
 
 // eslint-disable-next-line camelcase
 export const createCurrency = async (data) => {
+  console.log('data:', data)
   try {
     const API_URL = 'http://localhost:2222/v1/currencies/';
     // return 'axios désactivé';
     const response = await axios
       .post(API_URL, {
         name: data.name,
-        phone_prefix: data.phone_prefix,
+        symbol: data.symbol,
         iso_code: data.iso_code,
-        zone_id: data.zone_id,
-        currency_id: data.currency_id,
+        numeric_iso_code: data.numeric_iso_code,
       });
     if (response.status === 200) {
       getCurrencies();

@@ -26,7 +26,7 @@ const AddItem = ({
   const handleSubmit = async (event) => {
     event.preventDefault();
     toggleLoader();
-    await addItem();
+    await addItem(`${item.name}`);
     await toggleLoader();
     toggleModal();
   };

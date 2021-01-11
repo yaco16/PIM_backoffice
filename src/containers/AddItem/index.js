@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addItem: () => dispatch(createItem()),
+  addItem: (value) => dispatch(createItem(value)),
   toggleModal: () => dispatch(updateModalOpening()),
   toggleLoader: () => dispatch(updateLoader()),
 
