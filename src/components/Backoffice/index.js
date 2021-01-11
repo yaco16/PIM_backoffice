@@ -6,7 +6,7 @@ import 'src/styles/index.scss';
 
 import Home from 'src/components/Home';
 import Form from 'src/components/Form';
-import List from 'src/components/List';
+import List from 'src/components/ItemList';
 
 const Backoffice = ({ homeCategories }) => (
   <div className="home__main">

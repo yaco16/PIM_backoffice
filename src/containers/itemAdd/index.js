@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { connect } from 'react-redux';
-import AddItem from 'src/components/AddItem';
+import AddItem from 'src/components/itemAdd';
 import { createItem, updateModalOpening, updateLoader } from 'src/actions/addItem';
 
 const mapStateToProps = (state) => ({

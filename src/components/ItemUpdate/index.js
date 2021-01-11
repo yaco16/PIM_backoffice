@@ -10,17 +10,17 @@ import {
   Dimmer,
 } from 'semantic-ui-react';
 
-import AddItemField from 'src/containers/itemAdd-field';
+import AddItemField from 'src/containers/AddItemField';
 // import { changeName } from 'src/selectors/functions';
 
-const AddItem = ({
-  modalIsOpen,
-  toggleModal,
-  loaderIsActive,
-  toggleLoader,
-  item,
-  fullState,
-  addItem,
+const UpdateItem = ({
+  // modalIsOpen,
+  // toggleModal,
+  // loaderIsActive,
+  // toggleLoader,
+  // item,
+  // fullState,
+  // addItem,
 }) => {
   const labels = fullState[`${item.name}`].labelFr;
 
@@ -88,4 +88,4 @@ AddItem.propTypes = {
   addItem: PropTypes.func.isRequired,
 };
 
-export default AddItem;
+export default UpdateItem;
