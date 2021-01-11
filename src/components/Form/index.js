@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { Button, Form, Header } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './style.scss';
-import { updateCountry } from 'src/requests';
+import { updateCountry } from 'src/selectors/requests';
 import Confirm from './confirm';
 
 const Formulaire = (props) => {

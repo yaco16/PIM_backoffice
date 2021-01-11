@@ -7,7 +7,7 @@ import {
   Modal,
 } from 'semantic-ui-react';
 
-import { deleteCountry } from 'src/requests';
+import { deleteCountry } from 'src/selectors/requests';
 
 const Confirm = ({ id }) => {
   const [open, setOpen] = useState(false);

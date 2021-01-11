@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { getCurrencies } from 'src/requests';
+import { getCurrencies } from 'src/selectors/requests';
 
 import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
