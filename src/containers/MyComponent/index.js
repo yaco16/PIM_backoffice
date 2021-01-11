@@ -1,9 +1,9 @@
+/* eslint-disable no-console */
 import { connect } from 'react-redux';
-// import { actionOne, actionTwo } from '../actions/songActions';
 import MyComponent from 'src/selectors/MyComponent';
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
   return {
     category: state.homeCategories,
   };

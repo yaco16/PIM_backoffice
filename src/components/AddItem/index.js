@@ -23,14 +23,12 @@ const AddItem = ({
 }) => {
   const labels = fullState[`${item.name}`].labelFr;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     toggleLoader();
-    addItem();
-    setTimeout(() => {
-      toggleLoader();
-      toggleModal();
-    }, 1200);
+    await addItem();
+    await toggleLoader();
+    toggleModal();
   };
 
   return (

@@ -2,55 +2,125 @@
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
 import store from 'src/store';
-import { fetchCountries } from 'src/actions/countries';
+import { saveCountries } from 'src/actions/countries';
+import { saveCurrencies } from 'src/actions/currencies';
 
-export const deleteCountry = (id) => {
-  const API_URL = `http://localhost:2222/v1/countries/${id}`;
-  return axios
-    .delete(API_URL)
-    .then((response) => {
-      if (response.status === 200) {
-        store.dispatch(fetchCountries());
-        console.log(response.data);
-      }
-    })
-    .catch((error) => console.log(error));
+export const getCountries = async () => {
+  try {
+    const response = await axios.get('http://localhost:2222/v1/countries/');
+    store.dispatch(saveCountries(response.data));
+  }
+  catch (error) {
+    console.log(error);
+  }
 };
 
 // eslint-disable-next-line camelcase
-export const createCountry = (data) => {
-  console.log('dans request :', data.iso_code);
-  const API_URL = 'http://localhost:2222/v1/countries/';
-  // return 'axios désactivé';
-  return axios
-    .post(API_URL, {
-      name: data.name,
-      phone_prefix: data.phone_prefix,
-      iso_code: data.iso_code,
-      zone_id: '1',
-      currency_id: '1',
-    })
-    .then((response) => {
-      if (response.status === 200) {
-        console.log(response.data);
-        store.dispatch(fetchCountries());
-      }
-    })
-    .catch((error) => console.log(error));
+export const createCountry = async (data) => {
+  try {
+    const API_URL = 'http://localhost:2222/v1/countries/';
+    // return 'axios désactivé';
+    const response = await axios
+      .post(API_URL, {
+        name: data.name,
+        phone_prefix: data.phone_prefix,
+        iso_code: data.iso_code,
+        zone_id: data.zone_id,
+        currency_id: data.currency_id,
+      });
+    if (response.status === 200) {
+      getCountries();
+    }
+  }
+  catch (error) {
+    return console.log(error);
+  }
 };
 
-export const updateCountry = (country) => {
-  const API_URL = `http://localhost:2222/v1/countries/${country.id}`;
+export const updateCountry = async (country) => {
+  try {
+    const API_URL = `http://localhost:2222/v1/countries/${country.id}`;
+    const response = await axios
+      .put(API_URL, country);
+    if (response.status === 200) {
+      getCountries();
+    }
+  }
+  catch (error) {
+    console.log(error);
+  }
+};
 
-  return axios
-    .put(API_URL, country)
-    .then((response) => {
-      if (response.status === 200) {
-        console.log(response.data);
-        store.dispatch(fetchCountries());
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+export const deleteCountry = async (id) => {
+  try {
+    const API_URL = `http://localhost:2222/v1/countries/${id}`;
+    const response = await axios.delete(API_URL);
+    if (response.status === 200) {
+      getCountries();
+    }
+  }
+  catch (error) {
+    return console.log(error);
+  }
+};
+
+//CURRENCY
+export const getCurrencies = async () => {
+  try {
+    console.log('je suis dans request de Currency');
+    const response = await axios.get('http://localhost:2222/v1/currencies/');
+    store.dispatch(saveCurrencies(response.data));
+  }
+  catch (error) {
+    console.log(error);
+  }
+};
+
+// eslint-disable-next-line camelcase
+export const createCurrency = async (data) => {
+  try {
+    const API_URL = 'http://localhost:2222/v1/currencies/';
+    // return 'axios désactivé';
+    const response = await axios
+      .post(API_URL, {
+        name: data.name,
+        phone_prefix: data.phone_prefix,
+        iso_code: data.iso_code,
+        zone_id: data.zone_id,
+        currency_id: data.currency_id,
+      });
+    if (response.status === 200) {
+      getCurrencies();
+    }
+  }
+  catch (error) {
+    return console.log(error);
+  }
+};
+
+export const updateCurrency = async (currency) => {
+  try {
+    const API_URL = `http://localhost:2222/v1/currencies/${currency.id}`;
+    const response = await axios
+      .put(API_URL, currency);
+    if (response.status === 200) {
+      getCurrencies();
+    }
+  }
+  catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteCurrency = async (id) => {
+  try {
+    const API_URL = `http://localhost:2222/v1/currencies/${id}`;
+    const response = await axios.delete(API_URL);
+    if (response.status === 200) {
+      getCurrencies();
+    }
+  }
+  catch (error) {
+    return console.log(error);
+  }
 };

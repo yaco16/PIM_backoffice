@@ -1,21 +1,24 @@
 /* eslint-disable no-console */
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
+import { getCurrencies } from 'src/requests';
 
 import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
 
-const Currency = ({ currencies, getAllCurrencies }) => {
-  console.log('currencies:', currencies.currencies);
+const Currency = ({ currencies }) => {
+  console.log('currencies:', currencies)
   useEffect(() => {
-    console.log('je suis dans useEffect');
-    getAllCurrencies();
+    console.log('je suis dans useEffect de Currency');
+    getCurrencies();
   }, []);
-  console.log('je suis dans Currency');
   return (
+    // <div>Dans Currency</div>
     <div className="itemsList__container">
-      {currencies.currencies.map((currency) => (
+      {currencies.map((currency) => (
         <Link
           to={{
             pathname: '/form',
@@ -31,8 +34,11 @@ const Currency = ({ currencies, getAllCurrencies }) => {
 };
 
 Currency.propTypes = {
-  currencies: PropTypes.object.isRequired,
-  getAllCurrencies: PropTypes.func.isRequired,
+  currencies: PropTypes.array.isRequired,
 };
 
-export default Currency;
+const mapStateToProps = (state) => ({
+  currencies: state.currencies.list,
+});
+
+export default connect(mapStateToProps)(Currency);

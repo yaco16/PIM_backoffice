@@ -6,7 +6,7 @@ import {
   UPDATE_LOADER,
 } from 'src/actions/addItem';
 // eslint-disable-next-line import/no-cycle
-import { createCountry } from 'src/requests';
+import { createCountry, createCurrency } from 'src/requests';
 
 const initialState = {
   modalIsOpen: false,

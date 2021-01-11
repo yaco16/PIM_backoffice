@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Country from 'src/containers/Country';
-import Currency from 'src/containers/Currency';
+import Country from 'src/components/Country';
+import Currency from 'src/components/Currency';
 import ListDetails from 'src/components/ListDetails';
 
 class MyComponent extends Component {

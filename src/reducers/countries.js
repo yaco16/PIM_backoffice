@@ -1,15 +1,17 @@
 /* eslint-disable no-console */
-import { SAVE_COUNTRIES, SHOW_COUNTRIES } from 'src/actions/countries';
+import { SAVE_COUNTRIES } from 'src/actions/countries';
 
 const initialState = {
-  // fields: [{ name: '' }, { phone_prefix: '' }, { iso_code: '' }],
   labelFr: [
     { name: 'Nom du pays' },
     { phone_prefix: 'Indicatif téléphonique' },
     { iso_code: 'Code ISO' },
+    { zone_id: 'Numéro de zone' },
+    { currency_id: 'Numéro de devise' },
   ],
   itemName: 'un pays',
-  countries: [],
+  list: [],
+  loading: true,
   // newValue: '',
 };
 
@@ -19,14 +21,7 @@ const countries = (state = initialState, action = {}) => {
       // console.log('action.countries', action.countries);
       return {
         ...state,
-        countries: action.countries,
-      };
-    }
-
-    case SHOW_COUNTRIES: {
-      return {
-        ...state,
-        countries: action.countries,
+        list: action.countries,
       };
     }
 

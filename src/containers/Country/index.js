@@ -13,4 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   getAllCountries: () => dispatch(fetchCountries()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Country);
+// export default connect(mapStateToProps, mapDispatchToProps)(Country);

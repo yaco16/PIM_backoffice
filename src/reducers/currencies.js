@@ -9,16 +9,16 @@ const initialState = {
     { numeric_iso_code: 'Code ISO numérique' },
   ],
   itemName: 'une devise',
-  currencies: [],
+  list: [],
+  loading: true,
 };
 
 const currencies = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_CURRENCIES: {
-      console.log('action:', state.currencies.itemName);
       return {
         ...state,
-        currencies: action.currencies,
+        list: action.currencies,
       };
     }
     default:

@@ -5,7 +5,7 @@ import { FETCH_COUNTRIES, saveCountries } from 'src/actions/countries';
 const countries = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_COUNTRIES: {
-      // console.log('je suis dans le MW de Countries');
+      console.log('je suis dans le MW de Countries');
       axios
         .get('http://localhost:2222/v1/countries/')
         .then((response) => {
@@ -20,4 +20,4 @@ const countries = (store) => (next) => (action) => {
   }
 };
 
-export default countries;
+// export default countries;
