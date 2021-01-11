@@ -4,13 +4,11 @@ import PropTypes from 'prop-types';
 
 import Country from 'src/containers/Country';
 import Currency from 'src/containers/Currency';
-import ListDetails from 'src/components/ListDetails';
 
 class MyComponent extends Component {
   components = {
     country: Country,
     currency: Currency,
-    listDetails: ListDetails,
   };
 
   render() {

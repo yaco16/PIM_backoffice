@@ -25,7 +25,6 @@ const List = ({ category }) => {
 
       <ul>
         <MyComponent tag={String(category[0].nameSingular)} />
-        {/* <MyComponent tag="listDetails" /> */}
       </ul>
     </div>
   );

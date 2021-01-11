@@ -11,7 +11,7 @@ import {
 } from 'semantic-ui-react';
 
 import AddItemField from 'src/containers/AddItemField';
-import { changeName } from 'src/selectors/functions';
+// import { changeName } from 'src/selectors/functions';
 
 const AddItem = ({
   modalIsOpen,
