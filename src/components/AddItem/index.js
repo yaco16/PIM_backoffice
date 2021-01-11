@@ -11,6 +11,7 @@ import {
 } from 'semantic-ui-react';
 
 import AddItemField from 'src/containers/AddItemField';
+import { changeName } from 'src/selectors/functions';
 
 const AddItem = ({
   modalIsOpen,
@@ -26,6 +27,8 @@ const AddItem = ({
   const handleSubmit = async (event) => {
     event.preventDefault();
     toggleLoader();
+    // const category = changeName(fullState.homeCategories, item.name);
+    // await addItem(`${category}`);
     await addItem(`${item.name}`);
     await toggleLoader();
     toggleModal();

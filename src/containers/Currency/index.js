@@ -1,16 +1,10 @@
 /* eslint-disable no-console */
 import { connect } from 'react-redux';
 import Currency from 'src/components/Currency';
-import { fetchCurrencies } from 'src/actions/currencies';
+// import { fetchCurrencies } from 'src/actions/currencies';
 
 const mapStateToProps = (state) => ({
-  currencies: state.currencies,
+  currencies: state.currencies.list,
 });
 
-// const mapStateToProps = null;
-
-const mapDispatchToProps = (dispatch) => ({
-  getAllCurrencies: () => dispatch(fetchCurrencies()),
-});
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Currency);
+export default connect(mapStateToProps)(Currency);

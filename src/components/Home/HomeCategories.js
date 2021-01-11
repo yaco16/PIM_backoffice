@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import capitalize from 'src/selectors/functions';
+import { capitalize } from 'src/selectors/functions';
 import 'src/styles/index.scss';
 
 const HomeCategories = ({ homeCategories }) => (

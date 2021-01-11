@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getCountries } from 'src/requests';
@@ -11,7 +10,6 @@ import 'src/styles/index.scss';
 
 const Country = ({ countries }) => {
   useEffect(() => {
-    // console.log('je suis dans useEffect de Country');
     getCountries();
   }, []);
   return (
@@ -36,8 +34,4 @@ Country.propTypes = {
   countries: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  countries: state.countries.list,
-});
-
-export default connect(mapStateToProps)(Country);
+export default Country;

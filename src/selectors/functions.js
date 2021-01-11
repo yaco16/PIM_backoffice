@@ -1,11 +1,10 @@
-const capitalize = (s) => {
+/* eslint-disable no-console */
+export const capitalize = (s) => {
   if (typeof s !== 'string') return '';
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
-export default capitalize;
-
-// export const createComponentName = (data) => {
-//   const UppercaseName = capitalize(data);
-//   return <UppercaseName />
-// }
+export const changeName = (array, categoryName) => {
+  const newArray = array.homeCategories.find((obj) => obj.name === categoryName);
+  return capitalize(newArray.nameSingular);
+};

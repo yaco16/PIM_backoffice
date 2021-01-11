@@ -27,24 +27,10 @@ const addItem = (state = initialState, action = {}) => {
 
     case CREATE_ITEM: {
       if (action.category === 'countries') {
-        const query = {
-          name: state.name,
-          phone_prefix: state.phone_prefix,
-          iso_code: state.iso_code,
-          zone_id: '1',
-          currency_id: '1',
-        };
-        createCountry(query);
+        createCountry(state);
       }
-
       if (action.category === 'currencies') {
-        const query = {
-          name: state.name,
-          symbol: state.symbol,
-          iso_code: state.iso_code,
-          numeric_iso_code: state.numeric_iso_code,
-        };
-        createCurrency(query);
+        createCurrency(state);
       }
       return state;
     }

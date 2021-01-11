@@ -67,7 +67,6 @@ export const deleteCountry = async (id) => {
 //CURRENCY
 export const getCurrencies = async () => {
   try {
-    console.log('je suis dans request de Currency');
     const response = await axios.get('http://localhost:2222/v1/currencies/');
     store.dispatch(saveCurrencies(response.data));
   }
@@ -79,6 +78,7 @@ export const getCurrencies = async () => {
 // eslint-disable-next-line camelcase
 export const createCurrency = async (data) => {
   console.log('data:', data)
+  console.log('je suis dans request Create Currency');
   try {
     const API_URL = 'http://localhost:2222/v1/currencies/';
     // return 'axios désactivé';
