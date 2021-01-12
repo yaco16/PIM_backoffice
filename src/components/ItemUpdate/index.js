@@ -10,9 +10,10 @@ import {
   Dimmer,
 } from 'semantic-ui-react';
 
-// import AddItemField from 'src/containers/ItemAdd-field';
+import UpdateItemField from 'src/containers/ItemUpdate-field';
 
-const UpdateItem = ({ modalIsOpen, toggleModal }) => {
+const UpdateItem = ({ modalIsOpen, toggleModal, item }) => {
+  console.log('item:', item);
   // const labels = fullState[`${item.name}`].labelFr;
 
   const handleSubmit = async (event) => {
@@ -31,28 +32,37 @@ const UpdateItem = ({ modalIsOpen, toggleModal }) => {
         closeIcon
         open={modalIsOpen}
         as={Form}
-        // trigger={<Button color="green">Ajouter {item.nameFr2}</Button>}
         size="small"
         onOpen={() => toggleModal()}
         onClose={() => toggleModal()}
         onSubmit={(event) => handleSubmit(event)}
       >
-        {/* <Header content={`Ajouter ${item.nameFr2}`} /> */}
-        <Modal.Content>
-          {/* {labels.map((label) => (
-            <AddItemField
+        <Header content={`Modifier ${item.name}`} />
+        {/* <Modal.Content>
+          {item.map((label) => (
+            <UpdateItemField
               type="text"
               name={Object.keys(label)[0]}
               label={Object.values(label)[0]}
               key={Object.keys(label)[0]}
             />
-          ))} */}
+          ))}
+        </Modal.Content> */}
+        <Modal.Content>
+          {Object.keys(item).map((data) => (
+            <UpdateItemField
+              type="text"
+              name={data}
+              label={data}
+              key={data.id}
+            />
+          ))}
         </Modal.Content>
 
         <Modal.Actions>
-          {/* <Button type="button" basic color="red" onClick={() => toggleModal()}>
+          <Button type="button" basic color="red" onClick={() => toggleModal()}>
             Annuler
-          </Button> */}
+          </Button>
           <Button type="submit" color="green">
             Envoyer
           </Button>
@@ -72,6 +82,7 @@ const UpdateItem = ({ modalIsOpen, toggleModal }) => {
 UpdateItem.propTypes = {
   modalIsOpen: PropTypes.bool.isRequired,
   toggleModal: PropTypes.func.isRequired,
+  item: PropTypes.array.isRequired,
   // loaderIsActive: PropTypes.bool.isRequired,
   // toggleLoader: PropTypes.func.isRequired,
   // item: PropTypes.object.isRequired,

@@ -9,36 +9,22 @@ import { getCurrencies } from 'src/selectors/requests';
 import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
 
-const Currency = ({ currencies, toggleModal }) => {
+const Currency = ({ currencies, toggleModal, loadItem }) => {
   useEffect(() => {
     getCurrencies();
   }, []);
-  const handleOnClick = (event) => {
-    event.preventDefault();
-    console.log('clic');
-    toggleModal();
-  };
   return (
-    // <div>Dans Currency</div>
-    // <div className="itemsList__container">
-    //   {currencies.map((currency) => (
-    //     <Link
-    //       to={{
-    //         pathname: '/form',
-    //         state: currency,
-    //       }}
-    //       key={currency.id}
-    //     >
-    //       {currency.name}
-    //     </Link>
-    //   ))}
-    // </div>
     <div className="itemsList__container">
       {currencies.map((currency) => (
         <a
           href="/"
           key={currency.id}
-          onClick={handleOnClick}
+          onClick={(event) => {
+            event.preventDefault();
+            console.log(currency);
+            loadItem(currency);
+            toggleModal();
+          }}
         >
           {currency.name}
         </a>
@@ -51,6 +37,7 @@ const Currency = ({ currencies, toggleModal }) => {
 Currency.propTypes = {
   currencies: PropTypes.array.isRequired,
   toggleModal: PropTypes.func.isRequired,
+  loadItem: PropTypes.func.isRequired,
 };
 
 export default Currency;

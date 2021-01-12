@@ -1,17 +1,24 @@
 /* eslint-disable no-console */
-import { UPDATE_MODAL_OPENING2 } from 'src/actions/updateItem';
+import { UPDATE_MODAL_OPENING2, UPDATE_ITEM } from 'src/actions/updateItem';
 
 const initialState = {
   modalIsOpen: false,
+  itemToUpdate: [],
 };
 
 const updateItem = (state = initialState, action = {}) => {
   switch (action.type) {
     case UPDATE_MODAL_OPENING2: {
-      console.log('je suis dans le reducer de updateItem');
       return {
         ...state,
         modalIsOpen: !state.modalIsOpen,
+      };
+    }
+
+    case UPDATE_ITEM: {
+      return {
+        ...state,
+        itemToUpdate: action.item,
       };
     }
 
