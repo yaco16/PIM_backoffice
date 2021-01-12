@@ -13,7 +13,6 @@ const mapDispatchToProps = (dispatch) => ({
   addItem: (value) => dispatch(createItem(value)),
   toggleModal: () => dispatch(updateModalOpening()),
   toggleLoader: () => dispatch(updateLoader()),
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddItem);

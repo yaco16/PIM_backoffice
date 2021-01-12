@@ -2,7 +2,7 @@
 import { UPDATE_MODAL_OPENING2 } from 'src/actions/updateItem';
 
 const initialState = {
-  modalIsOpen: true,
+  modalIsOpen: false,
 };
 
 const updateItem = (state = initialState, action = {}) => {

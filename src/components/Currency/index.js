@@ -9,13 +9,14 @@ import { getCurrencies } from 'src/selectors/requests';
 import 'semantic-ui-css/semantic.min.css';
 import 'src/styles/index.scss';
 
-const Currency = ({ currencies }) => {
+const Currency = ({ currencies, toggleModal }) => {
   useEffect(() => {
     getCurrencies();
   }, []);
   const handleOnClick = (event) => {
     event.preventDefault();
     console.log('clic');
+    toggleModal();
   };
   return (
     // <div>Dans Currency</div>
@@ -49,6 +50,7 @@ const Currency = ({ currencies }) => {
 
 Currency.propTypes = {
   currencies: PropTypes.array.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 };
 
 export default Currency;
