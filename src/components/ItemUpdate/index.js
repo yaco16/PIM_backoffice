@@ -38,16 +38,6 @@ const UpdateItem = ({ modalIsOpen, toggleModal, item }) => {
         onSubmit={(event) => handleSubmit(event)}
       >
         <Header content={`Modifier ${item.name}`} />
-        {/* <Modal.Content>
-          {item.map((label) => (
-            <UpdateItemField
-              type="text"
-              name={Object.keys(label)[0]}
-              label={Object.values(label)[0]}
-              key={Object.keys(label)[0]}
-            />
-          ))}
-        </Modal.Content> */}
         <Modal.Content>
           {Object.keys(item).map((data) => (
             <UpdateItemField

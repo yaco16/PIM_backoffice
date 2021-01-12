@@ -7,6 +7,7 @@ const UpdateItemField = ({
   name,
   label,
   value,
+  placeholder,
   changeInputValue,
 }) => (
   <Form.Input
@@ -15,6 +16,7 @@ const UpdateItemField = ({
     name={name}
     label={label}
     value={value}
+    placeholder={placeholder}
     onChange={(event) => changeInputValue(event.target.value)}
   />
 );
@@ -24,6 +26,7 @@ UpdateItemField.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
   changeInputValue: PropTypes.func.isRequired,
 };
 

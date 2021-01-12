@@ -1,9 +1,14 @@
 /* eslint-disable no-console */
-import { UPDATE_MODAL_OPENING2, UPDATE_ITEM } from 'src/actions/updateItem';
+import { UPDATE_MODAL_OPENING2, UPDATE_ITEM, UPDATE_INPUT_VALUE2 } from 'src/actions/updateItem';
 
 const initialState = {
   modalIsOpen: false,
   itemToUpdate: [],
+  // id: '',
+  // name: '',
+  // symbol: '',
+  // iso_code: '',
+  // numeric_iso_code: '',
 };
 
 const updateItem = (state = initialState, action = {}) => {
@@ -19,6 +24,14 @@ const updateItem = (state = initialState, action = {}) => {
       return {
         ...state,
         itemToUpdate: action.item,
+      };
+    }
+
+    case UPDATE_INPUT_VALUE2: {
+      console.log(action.inputNames);
+      return {
+        ...state,
+        [action.inputNames]: action.inputValues,
       };
     }
 
