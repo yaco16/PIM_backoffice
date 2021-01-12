@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { connect } from 'react-redux';
-import AddItemField from 'src/components/itemAdd-field';
+import AddItemField from 'src/components/ItemAdd-field';
 import { updateInputValue } from 'src/actions/addItem';
 
 const mapStateToProps = (state, ownProps) => ({

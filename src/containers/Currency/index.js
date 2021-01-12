@@ -5,6 +5,7 @@ import Currency from 'src/components/Currency';
 
 const mapStateToProps = (state) => ({
   currencies: state.currencies.list,
+  modalIsOpen: state.currencies.modalIsOpen,
 });
 
 export default connect(mapStateToProps)(Currency);

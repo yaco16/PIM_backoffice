@@ -11,6 +11,7 @@ const initialState = {
   itemName: 'une devise',
   list: [],
   loading: true,
+  modalIsOpen: false,
 };
 
 const currencies = (state = initialState, action = {}) => {

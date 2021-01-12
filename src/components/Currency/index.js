@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import UpdateItem from 'src/containers/ItemUpdate';
 import { getCurrencies } from 'src/selectors/requests';
 
 import 'semantic-ui-css/semantic.min.css';
@@ -12,20 +13,36 @@ const Currency = ({ currencies }) => {
   useEffect(() => {
     getCurrencies();
   }, []);
+  const handleOnClick = (event) => {
+    event.preventDefault();
+    console.log('clic');
+  };
   return (
     // <div>Dans Currency</div>
+    // <div className="itemsList__container">
+    //   {currencies.map((currency) => (
+    //     <Link
+    //       to={{
+    //         pathname: '/form',
+    //         state: currency,
+    //       }}
+    //       key={currency.id}
+    //     >
+    //       {currency.name}
+    //     </Link>
+    //   ))}
+    // </div>
     <div className="itemsList__container">
       {currencies.map((currency) => (
-        <Link
-          to={{
-            pathname: '/form',
-            state: currency,
-          }}
+        <a
+          href="/"
           key={currency.id}
+          onClick={handleOnClick}
         >
           {currency.name}
-        </Link>
+        </a>
       ))}
+      <UpdateItem />
     </div>
   );
 };

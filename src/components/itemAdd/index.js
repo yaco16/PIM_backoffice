@@ -10,7 +10,7 @@ import {
   Dimmer,
 } from 'semantic-ui-react';
 
-import AddItemField from 'src/containers/itemAdd-field';
+import AddItemField from 'src/containers/ItemAdd-field';
 // import { changeName } from 'src/selectors/functions';
 
 const AddItem = ({
