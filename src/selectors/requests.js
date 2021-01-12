@@ -77,8 +77,6 @@ export const getCurrencies = async () => {
 
 // eslint-disable-next-line camelcase
 export const createCurrency = async (data) => {
-  console.log('data:', data)
-  console.log('je suis dans request Create Currency');
   try {
     const API_URL = 'http://localhost:2222/v1/currencies/';
     // return 'axios désactivé';
@@ -99,17 +97,19 @@ export const createCurrency = async (data) => {
 };
 
 export const updateCurrency = async (currency) => {
-  try {
-    const API_URL = `http://localhost:2222/v1/currencies/${currency.id}`;
-    const response = await axios
-      .put(API_URL, currency);
-    if (response.status === 200) {
-      getCurrencies();
-    }
-  }
-  catch (error) {
-    console.log(error);
-  }
+  console.log('je suis dans updateCurrency)');
+  console.log('currency:', currency);
+  // try {
+  //   const API_URL = `http://localhost:2222/v1/currencies/${currency.id}`;
+  //   const response = await axios
+  //     .put(API_URL, currency);
+  //   if (response.status === 200) {
+  //     getCurrencies();
+  //   }
+  // }
+  // catch (error) {
+  //   console.log(error);
+  // }
 };
 
 export const deleteCurrency = async (id) => {

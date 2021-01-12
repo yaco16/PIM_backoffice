@@ -11,19 +11,18 @@ import {
 } from 'semantic-ui-react';
 
 import UpdateItemField from 'src/containers/ItemUpdate-field';
+import Delete from 'src/components/ItemDelete';
 
-const UpdateItem = ({ modalIsOpen, toggleModal, item }) => {
-  console.log('item:', item);
-  // const labels = fullState[`${item.name}`].labelFr;
-
+const UpdateItem = ({ modalIsOpen, toggleModal, item, updateItemInDb }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
+    updateItemInDb();
     // toggleLoader();
     // const category = changeName(fullState.homeCategories, item.name);
     // await addItem(`${category}`);
     // await addItem(`${item.name}`);
     // await toggleLoader();
-    // toggleModal();
+    toggleModal();
   };
 
   return (
@@ -37,7 +36,12 @@ const UpdateItem = ({ modalIsOpen, toggleModal, item }) => {
         onClose={() => toggleModal()}
         onSubmit={(event) => handleSubmit(event)}
       >
-        <Header content={`Modifier ${item.name}`} />
+        <div className="form__container">
+          <div className="form__subContainer">
+            <Header className="form__header" content={`Modifier ${item.name}`} />
+            <Delete className="form__delete" />
+          </div>
+        </div>
         <Modal.Content>
           {Object.keys(item).map((data) => (
             <UpdateItemField
@@ -73,6 +77,7 @@ UpdateItem.propTypes = {
   modalIsOpen: PropTypes.bool.isRequired,
   toggleModal: PropTypes.func.isRequired,
   item: PropTypes.array.isRequired,
+  updateItemInDb: PropTypes.func.isRequired,
   // loaderIsActive: PropTypes.bool.isRequired,
   // toggleLoader: PropTypes.func.isRequired,
   // item: PropTypes.object.isRequired,

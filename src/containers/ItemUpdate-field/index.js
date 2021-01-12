@@ -1,20 +1,18 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-console */
 import { connect } from 'react-redux';
 import UpdateItemField from 'src/components/ItemUpdate-field';
 import { updateInputValue } from 'src/actions/updateItem';
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log('state[ownProps.name]', state.updateItem[ownProps.name]);
-  console.log('ici');
-  console.log(state[ownProps.name]);
-  console.log(state.updateItem.itemToUpdate[ownProps.name]);
-  // newValue = state[ownProps.name];
-
+  // console.log(ownProps);
+  // console.log('fields:', state.updateItem.fields);
+  const { fields } = state.updateItem;
   return {
-    placeholder: state.updateItem.itemToUpdate[ownProps.name],
+    // placeholder: state.updateItem.itemToUpdate[ownProps.name],
     // value: state.updateItem.itemToUpdate[ownProps.name],
+    // value: fields[ownProps.name],
     value: state[ownProps.name],
-    // value: newValue,
   };
 };
 

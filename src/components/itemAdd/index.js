@@ -29,7 +29,8 @@ const AddItem = ({
     toggleLoader();
     // const category = changeName(fullState.homeCategories, item.name);
     // await addItem(`${category}`);
-    await addItem(`${item.name}`);
+    await addItem(item.name);
+    console.log('item.name:', item.name);
     await toggleLoader();
     toggleModal();
   };

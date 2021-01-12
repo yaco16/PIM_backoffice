@@ -1,7 +1,8 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-console */
 import { connect } from 'react-redux';
 import UpdateItem from 'src/components/ItemUpdate';
-import { updateModalOpening2 } from 'src/actions/updateItem';
+import { updateModalOpening2, updateItemInDatabase } from 'src/actions/updateItem';
 
 const mapStateToProps = (state) => {
   // console.log(state.updateItem);
@@ -18,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     // updateItem: (value) => dispatch(updateItem(value)),
     toggleModal: () => dispatch(updateModalOpening2()),
+    updateItemInDb: () => dispatch(updateItemInDatabase()),
     // toggleLoader: () => dispatch(updateLoader()),
   };
 };
