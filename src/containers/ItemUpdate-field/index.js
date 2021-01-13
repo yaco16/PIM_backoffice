@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   // console.log('fields:', state.updateItem.fields);
   const { fields } = state.updateItem;
   return {
-    // placeholder: state.updateItem.itemToUpdate[ownProps.name],
+    placeholder: state.updateItem.itemToUpdate[ownProps.name],
     // value: state.updateItem.itemToUpdate[ownProps.name],
     // value: fields[ownProps.name],
     value: state[ownProps.name],

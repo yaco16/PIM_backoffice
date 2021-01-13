@@ -6,23 +6,29 @@ import {
   Modal,
   Form,
   Header,
+  Icon,
   Loader,
   Dimmer,
 } from 'semantic-ui-react';
 
+import './style.scss';
 import UpdateItemField from 'src/containers/ItemUpdate-field';
-import Delete from 'src/components/ItemDelete';
+// import Delete from 'src/components/ItemDelete';
 
 const UpdateItem = ({ modalIsOpen, toggleModal, item, updateItemInDb }) => {
+  const [firstOpen, setFirstOpen] = React.useState(false);
+  const [secondOpen, setSecondOpen] = React.useState(false);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    updateItemInDb();
+    console.log('je suis dans le submit de UpdateItem');
+    // updateItemInDb();
     // toggleLoader();
     // const category = changeName(fullState.homeCategories, item.name);
     // await addItem(`${category}`);
     // await addItem(`${item.name}`);
     // await toggleLoader();
-    toggleModal();
+    // toggleModal();
   };
 
   return (
@@ -36,10 +42,19 @@ const UpdateItem = ({ modalIsOpen, toggleModal, item, updateItemInDb }) => {
         onClose={() => toggleModal()}
         onSubmit={(event) => handleSubmit(event)}
       >
-        <div className="form__container">
-          <div className="form__subContainer">
-            <Header className="form__header" content={`Modifier ${item.name}`} />
-            <Delete className="form__delete" />
+        <div className="modal1__container">
+          <div className="modal1__subContainer">
+            <Header
+              className="modal1__header"
+              content={`Modifier ${item.name}`}
+            />
+            <Button
+              className="modal1__delete"
+              color="red"
+              onClick={() => setSecondOpen(true)}
+            >
+              Supprimer
+            </Button>
           </div>
         </div>
         <Modal.Content>
@@ -68,6 +83,33 @@ const UpdateItem = ({ modalIsOpen, toggleModal, item, updateItemInDb }) => {
             </Dimmer>
           </div>
         )} */}
+
+        <div className="modal2__confirm">
+          <Modal
+            // centered
+            onClose={() => setSecondOpen(false)}
+            open={secondOpen}
+            size="mini"
+          >
+            <Modal.Content>
+              <p>Confirmer la suppression ?</p>
+            </Modal.Content>
+            <Modal.Actions>
+              <Button color="red" onClick={() => setSecondOpen(false)}>
+                <Icon name="remove" /> Non
+              </Button>
+              <Button
+                color="green"
+                onClick={() => {
+                  setSecondOpen(false);
+                  // deleteCountry(id);
+                }}
+              >
+                <Icon name="checkmark" /> Oui
+              </Button>
+            </Modal.Actions>
+          </Modal>
+        </div>
       </Modal>
     </div>
   );
